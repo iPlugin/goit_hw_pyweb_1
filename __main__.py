@@ -1,5 +1,6 @@
 import os
 from os import system
+import logging as logger
 
 # About author #
 AUTHOR = "iPlugin"
@@ -31,6 +32,14 @@ import pickle
 if __name__ == "__main__":
     cls_nav = Navigation()
     paint = Console()
+
+    # Logging #
+    logger.basicConfig(
+        filename='example.log',
+        level=logger.DEBUG,
+        format='%(asctime)s | %(levelname)8s = %(message)s',
+        datefmt='%Y-%m-%d %H:%M:%S')
+    # # Logging # #
 
     # Report in security #
     if os.path.isfile(FILE_TXT) == True:

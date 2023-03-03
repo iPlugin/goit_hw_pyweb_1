@@ -1,4 +1,6 @@
 import pickle
+# from __main__ import logger
+import logging as logger
 from tqdm import tqdm
 from time import sleep
 from os import system
@@ -17,7 +19,8 @@ class Security:
 
     def shutdown(self):
         # from os import system
-        system("shutdown /s /t 5")
+        # system("shutdown /s /t 5")
+        pass
     
     # Work with file bin #
     def bin_load(self):
@@ -36,31 +39,39 @@ class Security:
     
     # Report in security #
     def rep_login(self):
+        logger.debug("Fixed log in")
         with open(self.FILE_TXT, 'a') as file:
             file.write(f"{self.date_now} Fixed log in\n")
     
     def rep_login_new(self):
+        logger.warning("Create a new file")
+        logger.debug("Fixed log in")
         with open(self.FILE_TXT, 'w') as file:
             file.write(f"{self.date_now} Create a new file\n")
             file.write(f"{self.date_now} Fixed log in\n")
             
-    def rep_bin_new(self):    
+    def rep_bin_new(self):
+        logger.warning("Create a new bin")
         with open(self.FILE_TXT, 'a') as file:
             file.write(f"{self.date_now} Create a new bin\n")
     
     def rep_add(self, name, surname):
+        logger.info(f"Added {name} {surname}")
         with open(self.FILE_TXT, 'a') as file:
             file.write(f"{self.date_now} Added {name} {surname}\n")
 
     def rep_delete(self, name, surname):
+        logger.info(f"Deleted {name} {surname}")
         with open(self.FILE_TXT, 'a') as file:
             file.write(f"{self.date_now} Deleted {name} {surname}\n")
     
     def rep_view(self):
+        logger.debug("Users follow")
         with open(self.FILE_TXT, 'a') as file:
             file.write(f"{self.date_now} Users follow\n")
 
     def rep_edit(self, name, change1, change2):
+        logger.info(f"Edit {name} change {change1} > {change2}")
         with open(self.FILE_TXT, 'a') as file:
             file.write(f"{self.date_now} Edit {name} change {change1} > {change2}\n")
     # # Report in security # #
